@@ -6,6 +6,7 @@ import SignupScreen from './screens/SignupScreen';
 import LoginScreen from './screens/LoginScreen'; // optional
 import ForgotPasswordScreen from './screens/ForgotPassword';
 import HomeScreen from './screens/HomeScreen';
+import StudentDashboard from './screens/StudentDashboard';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,12 @@ export default function App() {
           name="HomeScreen"
           component={HomeScreen}
           options={{ title: 'Home' }}
+        />
+
+        <Stack.Screen
+          name="StudentDashboard"
+          component={StudentDashboard}
+          options={{ title: 'Student Dashboard' }}
         />
 
       </Stack.Navigator>

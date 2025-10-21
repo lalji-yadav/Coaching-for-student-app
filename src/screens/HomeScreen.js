@@ -1,127 +1,98 @@
-// import React, { useState } from 'react';
-// import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-
-// const HomeScreen = () => {
-//   const [activeTab, setActiveTab] = useState('Offline');
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.header}>Home</Text>
-
-//       {/* Tabs */}
-//       <View style={styles.tabContainer}>
-//         <TouchableOpacity
-//           style={[styles.tabButton, activeTab === 'Offline' && styles.activeTab]}
-//           onPress={() => setActiveTab('Offline')}
-//         >
-//           <Text
-//             style={[styles.tabText, activeTab === 'Offline' && styles.activeText]}
-//           >
-//             Offline
-//           </Text>
-//         </TouchableOpacity>
-
-//         <TouchableOpacity
-//           style={[styles.tabButton, activeTab === 'Online' && styles.activeTab]}
-//           onPress={() => setActiveTab('Online')}
-//         >
-//           <Text
-//             style={[styles.tabText, activeTab === 'Online' && styles.activeText]}
-//           >
-//             Online
-//           </Text>
-//         </TouchableOpacity>
-//       </View>
-
-//       {/* Tab Content */}
-//       <View style={styles.contentContainer}>
-//         {activeTab === 'Offline' ? (
-//           <Text style={styles.contentText}>📴 You are viewing Offline content</Text>
-//         ) : (
-//           <Text style={styles.contentText}>🌐 You are viewing Online content</Text>
-//         )}
-//       </View>
-//     </View>
-//   );
-// };
-
-// // 🎨 Styles
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     paddingHorizontal: 20,
-//     paddingTop: 60,
-//   },
-//   header: {
-//     fontSize: 26,
-//     fontWeight: 'bold',
-//     color: '#1E90FF',
-//     textAlign: 'center',
-//     marginBottom: 30,
-//   },
-//   tabContainer: {
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     backgroundColor: '#E6E6E6',
-//     borderRadius: 10,
-//     marginBottom: 25,
-//   },
-//   tabButton: {
-//     flex: 1,
-//     paddingVertical: 12,
-//     borderRadius: 10,
-//   },
-//   activeTab: {
-//     backgroundColor: '#1E90FF',
-//   },
-//   tabText: {
-//     textAlign: 'center',
-//     fontSize: 16,
-//     fontWeight: '600',
-//     color: '#555',
-//   },
-//   activeText: {
-//     color: '#fff',
-//   },
-//   contentContainer: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   contentText: {
-//     fontSize: 18,
-//     color: '#333',
-//   },
-// });
-
-// export default HomeScreen;
-
-
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import StudentDashboard from './StudentDashboard';
 
-function TabOne() {
+
+function Offline({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Tab One</Text>
+    <View style={styles.container}>
+
+      {/* Goal Buttons */}
+      <View style={styles.grid}>
+
+        <TouchableOpacity style={styles.card}
+          onPress={() => navigation.navigate('StudentDashboard')}
+          >
+          <Text style={styles.cardText}>Class 9 - Science</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.card}
+          onPress={() => console.log('Selected: Class 10')}>
+          <Text style={styles.cardText}>Class 10 - Science</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.card}
+          onPress={() => console.log('Selected: Class 11')}>
+          <Text style={styles.cardText}>Class 11 - Science</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.card}
+          onPress={() => console.log('Selected: Class 12')}>
+          <Text style={styles.cardText}>Class 12 - Science</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.card}
+          onPress={() => console.log('Selected: NEET')}>
+          <Text style={styles.cardText}>NEET Preparation</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.card}
+          onPress={() => console.log('Selected: JEE')}>
+          <Text style={styles.cardText}>JEE Advanced</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.card}
+          onPress={() => console.log('Selected: Others')}>
+          <Text style={styles.cardText}>Others</Text>
+        </TouchableOpacity>
+
+
+      </View>
     </View>
   );
 }
 
-function TabTwo() {
+function Online() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Tab Two</Text>
-    </View>
-  );
-}
+    <View style={styles.screenContainer}>
 
-function TabThree() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Tab Three</Text>
+      <TouchableOpacity style={styles.card}
+        onPress={() => console.log('Selected: Class 9')}>
+        <Text style={styles.cardText}>Class 9</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card}
+        onPress={() => console.log('Selected: Class 10')}>
+        <Text style={styles.cardText}>Class 10</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card}
+        onPress={() => console.log('Selected: Class 11')}>
+        <Text style={styles.cardText}>Class 11</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card}
+        onPress={() => console.log('Selected: Class 12')}>
+        <Text style={styles.cardText}>Class 12</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card}
+        onPress={() => console.log('Selected: NEET')}>
+        <Text style={styles.cardText}>NEET</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card}
+        onPress={() => console.log('Selected: JEE')}>
+        <Text style={styles.cardText}>JEE</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.card}
+        onPress={() => console.log('Selected: Others')}>
+        <Text style={styles.cardText}>Others</Text>
+      </TouchableOpacity>
+
     </View>
   );
 }
@@ -130,17 +101,75 @@ const Tab = createMaterialTopTabNavigator();
 
 export default function HomeTopTabs() {
   return (
-    <Tab.Navigator
-      // screenOptions={{
-      //   tabBarActiveTintColor: 'tomato',
-      //   tabBarInactiveTintColor: 'gray',
-      //   tabBarLabelStyle: { fontSize: 14, fontWeight: 'bold' },
-      //   tabBarIndicatorStyle: { backgroundColor: 'tomato' },
-      // }}
-    >
-      <Tab.Screen name="TabOne" component={TabOne} options={{ title: 'Tab 1' }} />
-      <Tab.Screen name="TabTwo" component={TabTwo} options={{ title: 'Tab 2' }} />
-      <Tab.Screen name="TabThree" component={TabThree} options={{ title: 'Tab 3' }} />
-    </Tab.Navigator>
+    <View style={{ flex: 1 }}>
+      {/* 👉 Text above the top tabs */}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Select Goal 📚</Text>
+        <Text style={styles.headerText}>Explore All Exams At Divine</Text>
+        <Text style={styles.subtitle}>Choose your class or exam preparation</Text>
+
+      </View>
+
+      {/* 👉 Top Tabs Below */}
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: '#4b0f93ff',
+          tabBarInactiveTintColor: 'gray',
+          tabBarLabelStyle: { fontSize: 14, fontWeight: 'bold' },
+          tabBarIndicatorStyle: { backgroundColor: '#4b0f93ff' },
+        }}
+      >
+        <Tab.Screen name="Offline" component={Offline} />
+        <Tab.Screen name="Online" component={Online} />
+      </Tab.Navigator>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    padding: 16,
+    //alignItems: 'center',
+    backgroundColor: '#f9f9f9',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#4b0f93ff',
+    alignItems: 'left',
+  },
+  screenContainer: {
+    flex: 1,
+   // justifyContent: 'center',
+   // alignItems: 'center',
+  },
+  grid: {
+    // flexDirection: 'row',
+    // justifyContent: 'space-around',
+    // marginTop: 20,
+    // paddingHorizontal: 10,
+  },
+  card: {
+    width: '90%',
+    height: 45,
+    borderRadius: 15,
+    alignItems: 'center',
+    borderWidth: 1,
+    backgroundColor: '#f9f9f9',
+    marginVertical: 4,
+    marginHorizontal: 20,
+    borderColor: '#4b0f93ff'
+  },
+  cardText: {
+    color: '#4b0f93ff',
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 8,
+  },
+  subtitle: {
+    color: '#4b0f93ff',
+  }
+
+});
